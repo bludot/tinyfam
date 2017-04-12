@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block body %}
+
+<section>
+<div><h2>Please select a category</h2>
+{% for category in categories %}
+<div class="category">
+
+<a href="/categories/view/{{ category.id }}/{{ category.name}}">{{ category.name }}</a>
+
+</div>
+{% endfor %}
+</div>
+</section>
+{% endblock %}

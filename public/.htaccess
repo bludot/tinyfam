@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+ 
+# Rewrite all other URLs to index.php/URL
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+#RewriteRule ^(.*)$ index.php?url=$1 [PT,L]
+
+</IfModule>
+<IfModule !mod_rewrite.c>
+	ErrorDocument 404 index.php
+</IfModule>

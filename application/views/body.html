@@ -1,0 +1,61 @@
+<section class="head">
+    <h1>The Tiny Fam Framework</h1>
+<div class="code" style="height:300px;"><code></code></div>
+
+{% verbatim %}
+<script>
+    var code = document.querySelector('.code').querySelector('code');
+
+    var content = `
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="/styles/normalize.css" type="text/css" rel="stylesheet" >
+    <link href="/styles/main.css" type="text/css" rel="stylesheet" >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tiny Fam</title>
+</head>
+
+<body>
+{% block header %}
+{{ include('header.html') }}
+{% endblock %}
+{% block body %}
+{{ include('body.html') }}
+{% endblock %}
+{% block footer %}
+{{ include('footer.html') }}
+{% endblock %}
+</body>
+</html>
+`;
+    var lines = content.split(/\n/g);
+    for(var i in lines) {
+        var number = document.createElement('span');
+        number.className = 'lineNumber';
+        number.textContent = i;
+        var span = document.createElement('span');
+        span.textContent = lines[i] == "" ? "\n" : lines[i];
+//  code.appendChild(number);
+        code.appendChild(span);
+
+    }
+</script>
+    {% endverbatim %}
+</section>
+<section style="background-color:#fefefe">
+    <article>
+        <h2>I'm a section!</h2>
+        <p>Kitty scratches couch bad kitty if it fits, i sits so get video posted to internet for chasing red dot and meow meow, i tell my human for meowwww find something else more interesting. Why must they do that behind the couch put toy mouse in food bowl run out of litter box at full speed . Chase red laser dot eats owners hair then claws head yet mew. Have my breakfast spaghetti yarn lie on your belly and purr when you are asleep burrow under covers, so eat the fat cats food shove bum in owner's face like camera lens and present belly, scratch hand when stroked for cereal boxes make for five star accommodation . Meow to be let in wack the mini furry mouse. My left donut is missing, as is my right lie on your belly and purr when you are asleep and jump off balcony, onto stranger's head and find empty spot in cupboard and sleep all day.
+<a href="#">some link</a>
+            Curl up and sleep on the freshly laundered towels always hungry for eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap meowing non stop for food or please stop looking at your phone and pet me, so eat a plant, kill a hand or spill litter box, scratch at owner, destroy all furniture, especially couch. Kitty scratches couch bad kitty chase mice, for if it smells like fish eat as much as you wish stick butt in face, but paw at your fat belly. Pelt around the house and up and down stairs chasing phantoms meow to be let out curl up and sleep on the freshly laundered towels. I am the best pee in the shoe for mesmerizing birds. Ask for petting pooping rainbow while flying in a toasted bread costume in space mrow and sit by the fire bleghbleghvomit my furball really tie the room together. </p>
+    </article>
+</section>
+
+<section style="background-color:#fefefe">
+    <article>
+        <h2>CSRF Token</h2>
+        <p>{{ csrf }}</p>
+    </article>
+</section>
+

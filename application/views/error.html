@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+
+{% block header %}
+<header>
+    <h2>Error</h2>
+</header>
+{% endblock %}
+
+{% block body %}
+<section class="err">
+    <h2>{{ type }} Error</h2>
+
+    <div class="errmsg">{{ msg }}</div>
+</section>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

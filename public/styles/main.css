@@ -1,0 +1,135 @@
+html {
+    height:100%;
+}
+html, body {
+    font-family: sans-serif;
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color:#55abf9;
+}
+
+a:hover {
+    text-decoration: underline;
+
+}
+
+header {
+    height: 45px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fefefe;
+    line-height: 45px;
+    padding: 0 35px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+
+header a {
+    color:inherit;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f9844c;
+    min-height: 100%;
+    display: block;
+    position: relative;
+}
+
+main {
+
+    margin-top:45px;
+}
+
+.code code {
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+
+.code {
+    background-color:#fefefe;
+    max-width:500px;
+    position:relative;
+    margin: 0 auto;
+    overflow:auto;
+    box-shadow:0px 0px 3px 0px rgba(0,0,0,0.26);
+}
+
+.code span {
+    display:block;
+
+}
+/*counter-increment: linenumber;*/
+
+
+
+.code code > span {
+    counter-increment: linenumber;
+    margin-left: 40px;
+    position: relative;
+    font-size: 12px;
+    min-height:16px;
+    line-height:16px;
+    color:#666;
+}
+
+.code code > span:before {
+    content: counter(linenumber);
+    font-size:12px;
+    min-height:16px;
+    line-height:16px;
+    position: absolute;
+    left: -40px;
+    width: 25px;
+    background-color: #c5c5c5;
+    color: #444;
+    padding: 0 5px;
+    top:0;
+    bottom:0;
+}
+
+
+main > section {
+    padding:35px 65px;
+
+}
+
+footer {
+    border-top: 1px solid #e8e6e6;
+    padding: 25px 65px;
+    background-color: #fefefe;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+main > section.head > h1 {
+    text-align:center;
+    margin-bottom: 25px;
+}
+
+main > section h2 {
+    margin-bottom: 15px;
+}
+
+main .errmsg {
+    background-color: #5f5353;
+    padding: 15px 30px;
+    color: #fefefe;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+main > section.err {
+    max-width: 900px;
+    margin: 0 auto;
+}
