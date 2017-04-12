@@ -2,12 +2,12 @@
 
 return [
 
-       'appName' => 'Tiny Fam Framework',
+       'appName' => env('APP_NAME', 'Tiny Fam Framework'),
 
-       'title' => 'TinyFam',
+       'title' => env('TITLE', 'TinyFam'),
 
-       'environment' => "development",
+       'environment' => env('ENV', "production"),
 
        //'appUrl' => 'http://tinyfam.floretos.com'
-       'appUrl' => '/'
+       'appUrl' => env("APP_URL", '/')
 ];
