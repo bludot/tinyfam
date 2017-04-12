@@ -8,5 +8,5 @@ return [
 
        'environment' => env('ENV', "production"),
 
-       'appUrl' => env("APP_URL", 'tinyfam.floretos.com')
+       'appUrl' => env("APP_URL", '/')
 ];
