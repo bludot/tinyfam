@@ -31,7 +31,7 @@ if (! function_exists('env')) {
             case '(null)':
                 return;
         }
-        
+
         return $value;
     }
 }
