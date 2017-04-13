@@ -1,5 +1,6 @@
 composer.phar
 /vendor/
-.env*
+.env
 .idea/
 hooks/
+composer.lock
