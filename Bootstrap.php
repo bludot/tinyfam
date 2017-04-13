@@ -84,7 +84,6 @@ require_once (ROOT . DS . 'Core'. DS . 'App.php');
 $app = new Core\App;
 $app->setReporting(true);
 
-require_once (ROOT . DS . 'config' . DS . 'config.php');
 require_once (ROOT . DS . 'config' . DS . 'inflection.php');
 
 
