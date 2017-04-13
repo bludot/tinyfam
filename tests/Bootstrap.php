@@ -3,7 +3,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(dirname(__FILE__)));
 define('VENDOR', ROOT . DS . 'vendor');
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv\Dotenv(__DIR__, '.env.example');
 $dotenv->load();
 
 if (! function_exists('env')) {
