@@ -3,6 +3,42 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(dirname(__FILE__)));
 define('VENDOR', ROOT . DS . 'vendor');
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
+if (! function_exists('env')) {
+    /**
+     * Gets the value of an environment variable.
+     *
+     * @param  string  $key
+     * @param  mixed   $default
+     * @return mixed
+     */
+    function env($key, $default = null)
+    {
+        $value = getenv($key);
+        if ($value === false) {
+            return value($default);
+        }
+        switch (strtolower($value)) {
+            case 'true':
+            case '(true)':
+                return true;
+            case 'false':
+            case '(false)':
+                return false;
+            case 'empty':
+            case '(empty)':
+                return '';
+            case 'null':
+            case '(null)':
+                return;
+        }
+
+        return $value;
+    }
+}
+
 spl_autoload_register(function ($className) {
 if(strpos($className, '\\') > 0) {
     $className = explode('\\', $className);
@@ -49,7 +85,6 @@ require_once (ROOT . DS . 'Core'. DS . 'App.php');
 $app = new Core\App;
 $app->setReporting(true);
 
-require_once (ROOT . DS . 'config' . DS . 'config.php');
 require_once (ROOT . DS . 'config' . DS . 'inflection.php');
 
 
