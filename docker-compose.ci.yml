@@ -1,0 +1,22 @@
+version: "3.2"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    command: phpunit --configuration phpunit.xml.dist --coverage-text
+    #php composer.phar
+    volumes:
+      - .:/var/www/myapp
+  mysql:
+    image: mysql:5.7
+    links:
+      - php
+    volumes:
+      - .:/var/www/myapp
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
+    environment:
+      - MYSQL_DATABASE: mysql_database
+      - MYSQL_ROOT_PASSWORD: mysql_strong_password
