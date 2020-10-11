@@ -1,0 +1,26 @@
+version: "3.2"
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    command: tail -f /dev/null
+    #php composer.phar
+    volumes:
+      - .:/var/www/myapp
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    links:
+      - php
+    volumes:
+      - .:/var/www/myapp
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
+  composer:
+    image: composer:1.9
+    command: ["composer", "install"]
+    volumes:
+      - .:/app
