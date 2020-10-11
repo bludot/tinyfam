@@ -8,8 +8,8 @@ pipeline {
             }
         }
         stage('Test') {
-            step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.ci.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true]) {
-
+            steps {
+                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.ci.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
             }
         }
         stage('Deploy') {
