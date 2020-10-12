@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ci
-    command: phpunit --configuration phpunit.xml.dist --coverage-text
+    command: php composer.phar install && phpunit --configuration phpunit.xml.dist --coverage-text
     #php composer.phar
     volumes:
       - .:/var/www/myapp
@@ -18,5 +18,5 @@ services:
     links:
       - php
     environment:
-      - MYSQL_DATABASE: mysql_database
-      - MYSQL_ROOT_PASSWORD: mysql_strong_password
+      - MYSQL_DATABASE=mysql_database
+      - MYSQL_ROOT_PASSWORD=mysql_strong_password
