@@ -8,9 +8,13 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                dockerfile {
+                filename "Dockerfile.ci"
+                }
+            }
             steps {
                 step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.ci.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
-                sh 'docker'
             }
         }
         stage('Deploy') {
