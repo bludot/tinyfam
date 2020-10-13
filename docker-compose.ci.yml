@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ci
-    command: "/bin/bash -c 'curl -sS https://getcomposer.org/installer | php && php composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
+    command: "/bin/bash -c 'php /usr/local/bin/composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
     #php composer.phar
     volumes:
       - .:/var/www

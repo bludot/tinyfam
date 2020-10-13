@@ -14,7 +14,7 @@ pipeline {
                 }
             }
             steps {
-                sh "/bin/bash -c 'composer install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
+                sh "/bin/bash -c 'php /usr/local/bin/composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
             }
         }
         stage('Deploy') {
