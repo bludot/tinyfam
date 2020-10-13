@@ -33,8 +33,6 @@ pipeline {
                         error('Unexpected error while pushing to ECR!')
                     }
                 }
-                step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: 'docker', dockerFileDirectory: './', fromRegistry: [], pushCredentialsId: 'harbor-creds', pushOnSuccess: true, tagsString: '''harbor.floret.dev/tinyfamy/tinyfam:latest
-                harbor.floret.dev/tinyfam/tinyfam:${BUILD_NUMBER}'''])
             }
         }
         stage('Deploy') {
