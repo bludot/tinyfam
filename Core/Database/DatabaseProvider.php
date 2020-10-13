@@ -4,6 +4,7 @@ namespace Core\Database;
 
 use Core\App;
 use Core\Model;
+use Medoo\Medoo;
 
 class DatabaseProvider {
 

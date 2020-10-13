@@ -17,5 +17,3 @@ $whoops->register();
 $app = require_once (ROOT . DS . 'Bootstrap.php');
 $app->boot();
 $app->init();
-
-
