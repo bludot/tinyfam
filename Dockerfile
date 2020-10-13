@@ -11,4 +11,4 @@ RUN php -r "unlink('composer-setup.php');"
 RUN php /usr/local/bin/composer.phar install
 
 EXPOSE 9000
-CMD ["php-fpm"]]
+CMD ["php-fpm"]
