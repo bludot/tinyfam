@@ -2,6 +2,15 @@ FROM harbor.floret.dev/tinyfam/build:1
 
 
 WORKDIR /var/www
+COPY application application
+COPY config config
+COPY Core Core
+COPY db db
+COPY public public
+COPY .env .env
+COPY composer.json composer.json
+COPY composer.lock composer.lock
+COPY php.ini $PHP_INI_DIR/php.ini
 
 # Install and run Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
