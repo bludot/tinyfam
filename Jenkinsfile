@@ -20,7 +20,7 @@ pipeline {
         stage('build and push image') {
             steps {
                 script {
-                    APP_NAME="harbor.floret.dev/tinyfam/tinyfam/tinyfam"
+                    APP_NAME="harbor.floret.dev/tinyfam/tinyfam"
                     try {
                         docker.withRegistry("https://harbor.floret.dev", "harbor-creds") {
                             def stagImage = docker.build("$APP_NAME:$BUILD_NUMBER")
