@@ -14,7 +14,7 @@ pipeline {
                 }
             }
             steps {
-                step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.ci.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+                sh "/bin/bash -c 'curl -sS https://getcomposer.org/installer | php && php composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
             }
         }
         stage('Deploy') {
