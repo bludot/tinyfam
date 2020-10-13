@@ -14,7 +14,7 @@ pipeline {
                 }
             }
             steps {
-                sh "/bin/bash -c 'curl -sS https://getcomposer.org/installer | php && php composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
+                sh "/bin/bash -c 'php composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
             }
         }
         stage('Deploy') {
