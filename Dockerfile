@@ -7,7 +7,6 @@ COPY config config
 COPY Core Core
 COPY db db
 COPY public public
-COPY .env .env
 COPY composer.json composer.json
 COPY composer.lock composer.lock
 COPY php.ini $PHP_INI_DIR/php.ini
