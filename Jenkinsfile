@@ -19,6 +19,20 @@ pipeline {
         }
         stage('build and push image') {
             steps {
+                script {
+                    APP_NAME="harbor.floret.dev/tinyfam/tinyfam/tinyfam"
+                    try {
+                        docker.withRegistry("http://harbor.floret.dev", "harbor-creds") {
+                            def stagImage = docker.build("$APP_NAME:$BUILD_NUMBER")
+                            stagImage.push()
+                            def buildImage = docker.build("$APP_NAME:$BUILD_NUMBER")
+                            buildImage.push()
+                        }
+                    } catch (err) {
+                        echo(err.getMessage())
+                        error('Unexpected error while pushing to ECR!')
+                    }
+                }
                 step([$class: 'DockerBuilderPublisher', cleanImages: false, cleanupWithJenkinsJobDelete: false, cloud: 'docker', dockerFileDirectory: './', fromRegistry: [], pushCredentialsId: 'habor-creds', pushOnSuccess: true, tagsString: '''harbor.floret.dev/tinyfamy/tinyfam:latest
                 harbor.floret.dev/tinyfam/tinyfam:${BUILD_NUMBER}'''])
             }
