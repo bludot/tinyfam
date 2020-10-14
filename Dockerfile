@@ -18,5 +18,4 @@ RUN php composer-setup.php --install-dir=/usr/local/bin
 RUN php -r "unlink('composer-setup.php');"
 RUN php /usr/local/bin/composer.phar install
 
-EXPOSE 9000
-CMD ["php-fpm"]
+CMD ["nginx", "-g", "daemon off;"]

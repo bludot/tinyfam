@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        GIT_MASTER_BRANCH='master'
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -18,6 +22,13 @@ pipeline {
             }
         }
         stage('build and push image') {
+            when {
+                allOf {
+                    anyOf {
+                        branch GIT_MASTER_BRANCH
+                    }
+                }
+            }
             steps {
                 script {
                     APP_NAME="harbor.floret.dev/tinyfam/tinyfam"
