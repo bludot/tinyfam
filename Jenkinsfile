@@ -22,13 +22,13 @@ pipeline {
             }
         }
         stage('build and push image') {
-            when {
+            /*when {
                 allOf {
                     anyOf {
                         branch GIT_MASTER_BRANCH
                     }
                 }
-            }
+            }*/
             steps {
                 script {
                     APP_NAME="harbor.floret.dev/tinyfam/tinyfam"
