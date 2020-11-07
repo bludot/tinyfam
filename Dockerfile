@@ -21,6 +21,7 @@ RUN php composer-setup.php --install-dir=/usr/local/bin
 RUN php -r "unlink('composer-setup.php');"
 RUN php /usr/local/bin/composer.phar install
 RUN sed -i.bak 's/php:9000/localhost:9000/' /etc/nginx/conf.d/default.conf
+RUN touch .env
 RUN chown -R www-data:www-data /var/www
 RUN chmod +x entrypoint.sh
 CMD ["sh", "./entrypoint.sh"]
