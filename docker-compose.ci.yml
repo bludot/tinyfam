@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+  php-unit:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    command: "/bin/bash -c 'php /usr/local/bin/composer.phar install && vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text'"
+    #php composer.phar
+    volumes:
+      - .:/var/www
+    networks:
+      tinyfam_test_network:
+
+networks:
+  tinyfam_test_network:

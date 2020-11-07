@@ -1,0 +1,7 @@
+FROM harbor.floret.dev/tinyfam/build:1
+
+
+WORKDIR /var/www
+
+EXPOSE 9000
+CMD ["php-fpm"]

@@ -3,7 +3,7 @@
 namespace Core;
 use Core\Inflection;
 use Core\App;
-use Core\Database\Medoo as Medoo;
+use Medoo\Medoo as Medoo;
 
 abstract class Model implements \ArrayAccess, \IteratorAggregate, \JsonSerializable {
     /**

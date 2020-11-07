@@ -3,9 +3,9 @@
 /** Irregular Words
 
 $irregularWords = array(
-	'singular' => 'plural' 
+	'singular' => 'plural'
 );
- 
+
 **/
 
 $irregularWords = array(
