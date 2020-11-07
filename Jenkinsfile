@@ -24,13 +24,13 @@ pipeline {
             }
         }
         stage('build and push image') {
-            /*when {
+            when {
                 allOf {
                     anyOf {
                         branch GIT_MASTER_BRANCH
                     }
                 }
-            }*/
+            }
             steps {
                 script {
                     APP_NAME="harbor.floret.dev/tinyfam/tinyfam"
@@ -51,8 +51,7 @@ pipeline {
                             echo "${NEXT_VERSION_TAG}" > VERSION
                         """
                     } else {
-                        NEXT_VERSION=sh script: 'node -p "require(\'./package.json\').version" | tr -d \'\n\'', returnStdout: true
-                        NEXT_VERSION_TAG="v${NEXT_VERSION}"
+                        NEXT_VERSION_TAG=$GIT_TAG
 
                         sh """
                             echo "${NEXT_VERSION_TAG}" > VERSION
