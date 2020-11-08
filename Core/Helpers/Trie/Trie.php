@@ -37,8 +37,8 @@ class Trie extends Node implements JSONable {
         if(!empty($data)) {
             // Go through all existing nodes
             while($index<strlen($data)) {
-                if(!is_null($node) && array_key_exists($data{$index}, $node)) {
-                    $node = &$node[$data{$index++}];
+                if(!is_null($node) && array_key_exists($data[$index], $node)) {
+                    $node = &$node[$data[$index++]];
                 }
                 else break;
             }
@@ -48,8 +48,8 @@ class Trie extends Node implements JSONable {
                 if(is_null($node)) {
                     $node = array();
                 }
-                $node[$data{$index}] = null;
-                $node = &$node[$data{$index++}];
+                $node[$data[$index]] = null;
+                $node = &$node[$data[$index++]];
             }
 
         }
@@ -94,16 +94,16 @@ class Trie extends Node implements JSONable {
 
         // Iterate over characters
         for($i=0;$i<strlen($data);$i++) {
-            if(!is_null($node) && array_key_exists($data{$i}, $node)) {
+            if(!is_null($node) && array_key_exists($data[$i], $node)) {
 
                 // Store current node
                 if(array_key_exists("vl",$node)) {
                     $prev = &$node;
-                    $key = $data{$i};
+                    $key = $data[$i];
                 }
 
                 // Go to next node
-                $node = &$node[$data{$i}];
+                $node = &$node[$data[$i]];
             } else return false;
         }
 
@@ -131,8 +131,8 @@ class Trie extends Node implements JSONable {
         // Iterate through the characters
         $node = &$this->data;
         for($i=0;$i<strlen($data);$i++) {
-            if(!is_null($node) && array_key_exists($data{$i}, $node)) {
-                $node = &$node[$data{$i}];
+            if(!is_null($node) && array_key_exists($data[$i], $node)) {
+                $node = &$node[$data[$i]];
             } else return false;
         }
 
@@ -152,8 +152,8 @@ class Trie extends Node implements JSONable {
         // Iterate through the characters
         $node = &$this->data;
         for($i=0;$i<strlen($data);$i++) {
-            if(!is_null($node) && array_key_exists($data{$i}, $node)) {
-                $node = &$node[$data{$i}];
+            if(!is_null($node) && array_key_exists($data[$i], $node)) {
+                $node = &$node[$data[$i]];
             } else return false;
         }
 
@@ -176,8 +176,8 @@ class Trie extends Node implements JSONable {
 
         // Get to the node at $prefix first
         for($i=0;$i<strlen($prefix);$i++) {
-            if(!is_null($node) && array_key_exists($prefix{$i}, $node)) {
-                $node = &$node[$prefix{$i}];
+            if(!is_null($node) && array_key_exists($prefix[$i], $node)) {
+                $node = &$node[$prefix[$i]];
             } else return $words;
         }
 

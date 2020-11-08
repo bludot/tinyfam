@@ -25,8 +25,8 @@ class RouterTrie extends Trie {
         if(!empty($data)) {
             // Go through all existing nodes
             while($index<strlen($data)) {
-                if(!is_null($node) && array_key_exists($data{$index}, $node)) {
-                    $node = &$node[$data{$index++}];
+                if(!is_null($node) && array_key_exists($data[$index], $node)) {
+                    $node = &$node[$data[$index++]];
                 }
                 else break;
             }
@@ -39,23 +39,23 @@ class RouterTrie extends Trie {
                 }
 
 
-                if($data{$index} == "{") {
-                    $stack.=$data{$index};
+                if($data[$index] == "{") {
+                    $stack.=$data[$index];
                     $skip = true;
                     $index++;
-                } else if($data{$index} == "}") {
-                    $stack.="*".$data{$index};
+                } else if($data[$index] == "}") {
+                    $stack.="*".$data[$index];
                     $skip = false;
                     $node[$stack] = null;
                     $index++;
                     $node = &$node[$stack];
                     $stack = "";
                 } else if(!$skip) {
-                     $node[$data{$index}] = null;
-                     $node = &$node[$data{$index++}];
+                     $node[$data[$index]] = null;
+                     $node = &$node[$data[$index++]];
                  }
                 if($skip) {
-                   //$stack.=$data{$index};
+                   //$stack.=$data[$index];
                    $index++;
                }
 
@@ -99,7 +99,7 @@ class RouterTrie extends Trie {
         // Iterate through the characters
         $node = &$this->data;
         for($i=0;$i<strlen($data);$i++) {
-            if(!is_null($node) && !array_key_exists($data{$i}, $node) && array_key_exists('{*}', $node)) {
+            if(!is_null($node) && !array_key_exists($data[$i], $node) && array_key_exists('{*}', $node)) {
                 $node = &$node['{*}'];
                 $pos = strpos(substr($data, $i), '/');
 
@@ -108,8 +108,8 @@ class RouterTrie extends Trie {
                 }
                 $i+=$pos;
             }
-            if(!is_null($node) && array_key_exists($data{$i}, $node)) {
-                $node = &$node[$data{$i}];
+            if(!is_null($node) && array_key_exists($data[$i], $node)) {
+                $node = &$node[$data[$i]];
             } else {
                 return false;
             }
