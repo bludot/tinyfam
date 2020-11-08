@@ -90,7 +90,7 @@ class Trie extends Node implements JSONable {
         $node = &$this->data;
         $prev = null;
         if(!empty($data)) $prev = &$node;
-        $key = empty($data) ? null : $data{0};
+        $key = empty($data) ? null : $data[0];
 
         // Iterate over characters
         for($i=0;$i<strlen($data);$i++) {
